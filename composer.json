@@ -4,7 +4,8 @@
     "monolog/monolog": "^1.22",
     "twig/twig": "^2.0",
     "symfony/twig-bridge": "^3",
-    "alrik11es/cowsayphp": "^1.2"
+    "alrik11es/cowsayphp": "^1.2",
+    "csanquer/pdo-service-provider": "~1.1dev"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
