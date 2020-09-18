@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+
+{% block content %}
 <main role="main">
 
   <section class="jumbotron text-center">
@@ -26,9 +28,11 @@
                 <small class="text-muted">Next tasks...</small>
               </div>
                 <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    {% for task in tasks %}
+  {% if task.2 == "BACKLOG" %}
+  <li class="list-group-item">{{task.1}}</li>
+  {% endif %}
+  {% endfor %}
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Add a task</a>
@@ -46,9 +50,11 @@
                 <small class="text-muted">Tasks</small>
               </div>
                 <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    {% for task in tasks %}
+  {% if task.2 == "TODO" %}
+  <li class="list-group-item">{{task.1}}</li>
+  {% endif %}
+  {% endfor %}
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Add a task</a>
@@ -66,9 +72,11 @@
                 <small class="text-muted">Current tasks</small>
               </div>
               <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    {% for task in tasks %}
+  {% if task.2 == "DOING" %}
+  <li class="list-group-item">{{task.1}}</li>
+  {% endif %}
+  {% endfor %}
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Add a task</a>
@@ -86,9 +94,11 @@
                 <small class="text-muted">Achieved</small>
               </div>
                 <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    {% for task in tasks %}
+  {% if task.2 == "DONE" %}
+  <li class="list-group-item">{{task.1}}</li>
+  {% endif %}
+  {% endfor %}
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Add a task</a>
