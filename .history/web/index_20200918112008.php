@@ -30,7 +30,7 @@ if ($conn->connect_error) {
 }
 
 // On créé la requête
-$req = "SELECT * FROM task";
+$req = "SELECT * FROM table1";
  
 // on envoie la requête
 $res = $conn->query($req);
@@ -39,7 +39,7 @@ $res = $conn->query($req);
 echo "<table>";
 while ($data = mysqli_fetch_array($res)) {
     // on affiche les résultats
-    echo "<tr><td>".$data['id']."</td><td>".$data['name']."</td></tr>";
+    echo "<tr><td>".$data['id']."</td><td>".$data['texte']."</td></tr>";
 }
 echo "</table>";
 
