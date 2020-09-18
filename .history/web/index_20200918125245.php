@@ -39,14 +39,14 @@ $req = "SELECT * FROM task";
  
 // on envoie la requête
 $res = $conn->query($req);
-$tasks = array();
+$tasks = list();
+
 // on va scanner tous les tuples un par un
 echo "<table>";
 while ($data = mysqli_fetch_array($res)) {
     // on affiche les résultats
-    $tasks[0] = $data['id']."</td><td>".$data['name']."</td></tr>";
+    $tasks.append($data['id']."</td><td>".$data['name']."</td></tr>");
 }
-
 echo "</table>";
   $app['monolog']->addDebug('logging output.');
   return $app['twig']->render('index.twig', ['tasks' => $tasks]);

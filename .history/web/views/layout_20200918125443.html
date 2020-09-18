@@ -7,6 +7,9 @@
   {% include 'nav.html' %}
   {% block content %}{% endblock %}
   {{tasks}}
+  {% for task in tasks %}
+    <p>{{task.name}}</p>
+  {% endfor %}
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

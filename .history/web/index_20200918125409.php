@@ -46,7 +46,6 @@ while ($data = mysqli_fetch_array($res)) {
     // on affiche les résultats
     $tasks[0] = $data['id']."</td><td>".$data['name']."</td></tr>";
 }
-
 echo "</table>";
   $app['monolog']->addDebug('logging output.');
   return $app['twig']->render('index.twig', ['tasks' => $tasks]);
