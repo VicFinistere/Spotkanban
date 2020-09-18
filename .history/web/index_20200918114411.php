@@ -29,8 +29,15 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+// On créé la requête
+$req = "SELECT * FROM task";
+ 
+// on envoie la requête
+$res = $conn->query($req);
+ 
 // on va scanner tous les tuples un par un
-$result = $mysqli -> query("SELECT * FROM task");
+$data = mysqli_fetch_array($res);
+
 // Our web handlers
 
 $app->get('/', function() use($app) {
@@ -40,7 +47,7 @@ $app->get('/', function() use($app) {
 
 $app->get('/cowsay', function() use($app) {
   $app['monolog']->addDebug('cowsay');
-  return "<pre>".\Cowsayphp\Cow::say($result)."</pre>";
+  return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
 });
 
 $app->run();

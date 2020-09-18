@@ -30,7 +30,7 @@ if ($conn->connect_error) {
 }
 
 // on va scanner tous les tuples un par un
-$result = $mysqli -> query("SELECT * FROM task");
+$result = $mysqli -> query("SELECT * FROM task")
 // Our web handlers
 
 $app->get('/', function() use($app) {
