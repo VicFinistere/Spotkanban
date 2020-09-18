@@ -35,7 +35,7 @@
   {% endfor %}
   </ul>
   <div class="card-body text-right">
-    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myTaskModal">Add a task</button>
+    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myInputModal">Add a task</button>
   </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
   {% endfor %}
   </ul>
  <div class="card-body text-right">
-    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myTaskModal">Add a task</button>
+    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myInputModal">Add a task</button>
   </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
   {% endfor %}
   </ul>
   <div class="card-body text-right">
-    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myTaskModal">Add a task</button>
+    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myInputModal">Add a task</button>
   </div>
             </div>
           </div>
@@ -101,7 +101,7 @@
   {% endfor %}
   </ul>
   <div class="card-body text-right">
-    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myTaskModal">Add a task</button>
+    <button type="button" class="btn btn-light my-2"card-link" data-toggle="modal" data-target="#myInputModal">Add a task</button>
   </div>
             </div>
           </div>
@@ -155,8 +155,8 @@
   </div>
 </div>
 
-<!-- Task Modal -->
-<div id="myTaskModal" class="modal fade" role="dialog">
+<!-- Input Modal -->
+<div id="myInputModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -202,7 +202,7 @@ function openModal(index, name, status, description){
     $(".task-modal-title").html("Task : " + name);
     $("#task-name").val(name);
     $('#task-description').val(description);
-    $('#myTaskModal').modal();
+    $('#myInputModal').modal();
 
 }       
 </script>
