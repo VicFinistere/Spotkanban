@@ -21,21 +21,14 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-// Use the database 
+// Our web handlers
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// On créé la requête
-$req = "SELECT * FROM task";
- 
 $app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
   $conn = new mysqli($server, $username, $password, $db);
-  $tasks = $conn->query($req);
-  return $app['twig']->render('index.twig', ['tasks' => $tasks]);
+  $result = mysqli_query($conn, "SELECT * FROM task");
+  $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $app['monolog']->addDebug('logging output.');
+  return $app['twig']->render('index.twig', ['tasks' => $tasks,]);
 });
 
 $app->get('/cowsay', function() use($app) {
