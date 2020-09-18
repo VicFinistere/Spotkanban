@@ -40,7 +40,7 @@ function get_tasks()
 // Our web handlers
 
 $app->get('/', function() use($app) {
-    $debug = "";
+    $debug = "toto";
     $tasks = get_tasks();
     foreach($tasks as $task){
       if(mb_detect_encoding($task['name'], "UTF-8")){
