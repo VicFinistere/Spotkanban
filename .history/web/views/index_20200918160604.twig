@@ -28,14 +28,7 @@
                 <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "BACKLOG" %}
-  <li class="list-group-item" 
-  onclick="function(){
-                        var task = {{task}};
-                        openModal(task);
-                      }
-  ">
-  {{task.1}}
-  </li>
+  <li class="list-group-item" onclick="openModal({{task}})">{{task.1}}</li>
   {% endif %}
   {% endfor %}
   </ul>
@@ -156,8 +149,7 @@
 
 <script type="text/javascript">
 
-function openModal(task){
-    alert(task);
+function openModal({{task.0}}, {{task.1}}, {{task.2}}){
     for(task_item in task){
       alert(task_item);
     }
