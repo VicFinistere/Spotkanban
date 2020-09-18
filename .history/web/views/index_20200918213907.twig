@@ -52,9 +52,7 @@
                 <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "TODO" %}
-   {% autoescape %}
-  <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1|raw}}', '{{task.2|raw}}', '{{task.3|raw}}');">
-  {% endautoescape %}
+  <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1}}', '{{task.2}}', '{{task.3}}');">
   {{task.1}}
   </li>
   {% endif %}
@@ -76,9 +74,7 @@
               <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "DOING" %}
- {% autoescape %}
-  <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1|raw}}', '{{task.2|raw}}', '{{task.3|raw}}');">
-  {% endautoescape %}
+  <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1}}', '{{task.2}}', '{{task.3}}');">
   {{task.1}}
   </li>
   {% endif %}
@@ -100,9 +96,7 @@
                 <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "DONE" %}
-  {% autoescape %}
-  <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1|raw}}', '{{task.2|raw}}', '{{task.3|raw}}');">
-  {% endautoescape %}
+  <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1}}', '{{task.2}}', '{{task.3}}');">
   {{task.1}}
   </li>
   {% endif %}
