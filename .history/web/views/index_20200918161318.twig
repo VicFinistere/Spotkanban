@@ -28,7 +28,7 @@
                 <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "BACKLOG" %}
-  <li class="list-group-item" onclick="var task={{task}};openModal(task);">
+  <li class="list-group-item" onclick="var task = {{task}};openModal(task);">
   {{task.1}}
   </li>
   {% endif %}
