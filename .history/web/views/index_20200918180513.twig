@@ -35,7 +35,7 @@
   {% endfor %}
   </ul>
   <div class="card-body">
-    <button type="button" class=""card-link" data-toggle="modal" data-target="#myInputModal">Add a task</button>
+    <button type="button" class=""card-link" data-toggle="modal" data-target="#myModal2">Add a task</button>
   </div>
             </div>
           </div>
@@ -156,20 +156,17 @@
 </div>
 
 <!-- Input Modal -->
-<div id="myInputModal" class="modal fade" role="dialog">
+<div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-      <h4 class="modal-title">Add a task</h4>
+      <h4 class="modal-title">SpotKanban</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <form>
-        <label for="name">Task name:</label><br><input type="text" id="task-name" name="task-name"><br>
-        <label for="description">Task description:</label><br><input type="text" id="task-description" name="task-description"><br>
-        </form>
+        <p>With this board you can manage your tasks.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
