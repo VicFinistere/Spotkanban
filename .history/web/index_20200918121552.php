@@ -25,8 +25,10 @@ $db = substr($url["path"], 1);
 
 $app->get('/', function() use($app) {
   $conn = new mysqli($server, $username, $password, $db);
-  $result = mysqli_query($conn, "SELECT * FROM task");
-  $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  $sql = "SELECT * FROM task";
+  $result = $conn -> query($sql);
+  $tasks = fetch_all(MYSQLI_ASSOC);
+  print_r($post);
   $app['monolog']->addDebug('logging output.');
   return $app['twig']->render('index.twig', ['tasks' => $tasks,]);
 });
