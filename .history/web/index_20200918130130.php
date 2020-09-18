@@ -17,8 +17,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 
 
-function get_tasks()
-{
+
+
+// Our web handlers
+
+$app->get('/', function() use($app) {
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
   $server = $url["host"];
   $username = $url["user"];
@@ -29,18 +32,24 @@ function get_tasks()
   $conn = new mysqli($server, $username, $password, $db);
 
   // Check connection
-  if ($conn->connect_error) 
-  {
+  if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
+
+  // On créé la requête
+  $req = "SELECT * FROM task";
   
-  return $conn->query("SELECT * FROM task");
-}
+  // on envoie la requête
+  $res = $conn->query($req);
+  $tasks = array();
+  // on va scanner tous les tuples un par un
+  echo "<table>";
+  while ($data = mysqli_fetch_array($res)) {
+      // on affiche les résultats
+      $tasks[0] = $data['id']."</td><td>".$data['name']."</td></tr>";
+  }
 
-// Our web handlers
-
-$app->get('/', function() use($app) {
-    $tasks = get_tasks();
+  echo "</table>";
     $app['monolog']->addDebug('logging output.');
     return $app['twig']->render('index.twig', ['tasks' => $tasks]);
   });

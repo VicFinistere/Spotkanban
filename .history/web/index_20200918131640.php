@@ -17,7 +17,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 
 
-function get_tasks()
+public function get_tasks(Type $var = null)
 {
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
   $server = $url["host"];
@@ -29,12 +29,13 @@ function get_tasks()
   $conn = new mysqli($server, $username, $password, $db);
 
   // Check connection
-  if ($conn->connect_error) 
-  {
+  if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
   
-  return $conn->query("SELECT * FROM task");
+  $tasks = $conn->query("SELECT * FROM task");
+  
+  return tasks
 }
 
 // Our web handlers
