@@ -185,7 +185,7 @@
             <option value="DONE">DONE</option>
           </select>
           </div>          
-          <button type="submit" class="btn btn-primary" id="task-modal-button">Add task</button>
+          <button type="submit" class="btn btn-primary task-modal-button">Add task</button>
         </form>
       </div>
       <div class="modal-footer">
@@ -203,7 +203,7 @@ function modifyTask(index, name, status, description){
     $("#task-name").val(name);
     $('#task-description').val(description);
     $('#task-status').val(status);
-    $('#task-modal-button').val("Update task");
+    $('.task-modal-button').val("Update task");
     $('#myTaskModal').modal();
 
 }     
@@ -213,7 +213,7 @@ function addTask(){
     $("#task-name").val("");
     $('#task-description').val("");
     $('#task-status').val("");
-    $('#task-modal-button').val("Add task");
+    $('.task-modal-button').val("Add task");
     $('#myTaskModal').modal();
 
 }     
