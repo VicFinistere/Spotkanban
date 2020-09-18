@@ -36,9 +36,11 @@ $req = "SELECT * FROM task";
 $res = $conn->query($req);
  
 // on va scanner tous les tuples un par un
+echo "<table>";
 while ($data = mysqli_fetch_array($res)) {
   $tasks[] = $data;
 }
+echo "</table>";
 
 // Our web handlers
 

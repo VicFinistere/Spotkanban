@@ -29,27 +29,21 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// On créé la requête
-$req = "SELECT * FROM task";
- 
-// on envoie la requête
-$res = $conn->query($req);
- 
 // on va scanner tous les tuples un par un
-while ($data = mysqli_fetch_array($res)) {
-  $tasks[] = $data;
-}
-
+$result = $conn -> query("SELECT * FROM task");
 // Our web handlers
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig', ['tasks' => $tasks,]);
+  return $app['twig']->render('index.twig', [
+    'category' => '...',
+    'promotions' => ['...', '...'],
+]);
 });
 
 $app->get('/cowsay', function() use($app) {
   $app['monolog']->addDebug('cowsay');
-  return "<pre>".\Cowsayphp\Cow::say("Cool beans")."</pre>";
+  return "<pre>".\Cowsayphp\Cow::say("I am cow")."</pre>";
 });
 
 $app->run();
