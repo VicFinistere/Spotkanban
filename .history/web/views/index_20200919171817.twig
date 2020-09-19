@@ -220,10 +220,10 @@ var task_status = $("#task-status").val();
       type: "POST",
       dataType: "json",
         data: {
-          id:task_id,
-          name: task_name,
-          description: task_description,
-          status: task_status
+          id:task-id,
+          name: task-name,
+          description: task-description,
+          status: task-status
         },
         async: true,
         success: function (data) {
@@ -231,6 +231,7 @@ var task_status = $("#task-status").val();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
           alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+          console.log("FAIL handle task" + task_id  + " " + task_name + " " + task_description + " " + task_status);
         } 
     });
 }
