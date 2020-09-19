@@ -40,13 +40,13 @@ function get_tasks()
 
 // Our web handlers
 
-$app->get('/', function() use($app) {
+$app->get('/', function(Request $request) use($app) {
     $tasks = get_tasks();
-    $app['monolog']->addDebug('logging index output.');
+    $app['monolog']->addDebug('logging output.');
     return $app['twig']->render('index.twig', ['tasks' => $tasks]);
   });
 
-  $app->get('/add_task', function(Request $request) use($app) {
+  $app->get('/add_task', function() use($app) {
     $idSelect = $request->query->get('idSelect');
     $app['monolog']->addDebug('logging output.');
     //return $this->json(['response' => 'success']);
@@ -54,7 +54,7 @@ $app->get('/', function() use($app) {
 
   });
 
-  $app->get('/update_task', function(Request $request) use($app) {
+  $app->get('/update_task', function() use($app) {
     $idSelect = $request->request->get('idSelect');
     $app['monolog']->addDebug('logging output.');
     return "<pre>".\Cowsayphp\Cow::say($idSelect)."</pre>";

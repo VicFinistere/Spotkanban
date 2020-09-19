@@ -1,7 +1,6 @@
 <?php
 
 require('../vendor/autoload.php');
-use Symfony\Component\HttpFoundation\Request;
 
 $app = new Silex\Application();
 $app['debug'] = true;
@@ -42,19 +41,19 @@ function get_tasks()
 
 $app->get('/', function() use($app) {
     $tasks = get_tasks();
-    $app['monolog']->addDebug('logging index output.');
+    $app['monolog']->addDebug('logging output.');
     return $app['twig']->render('index.twig', ['tasks' => $tasks]);
   });
 
-  $app->get('/add_task', function(Request $request) use($app) {
-    $idSelect = $request->query->get('idSelect');
+  $app->get('/add_task', function() use($app) {
+    $idSelect = $request->request->get('idSelect');
     $app['monolog']->addDebug('logging output.');
     //return $this->json(['response' => 'success']);
     return "<pre>".\Cowsayphp\Cow::say($idSelect)."</pre>";
 
   });
 
-  $app->get('/update_task', function(Request $request) use($app) {
+  $app->get('/update_task', function() use($app) {
     $idSelect = $request->request->get('idSelect');
     $app['monolog']->addDebug('logging output.');
     return "<pre>".\Cowsayphp\Cow::say($idSelect)."</pre>";

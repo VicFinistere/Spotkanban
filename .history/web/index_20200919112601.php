@@ -54,7 +54,7 @@ $app->get('/', function() use($app) {
 
   });
 
-  $app->get('/update_task', function(Request $request) use($app) {
+  $app->get('/update_task', function() use($app) {
     $idSelect = $request->request->get('idSelect');
     $app['monolog']->addDebug('logging output.');
     return "<pre>".\Cowsayphp\Cow::say($idSelect)."</pre>";
