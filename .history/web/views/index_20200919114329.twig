@@ -211,7 +211,7 @@ $('#task-modal-button').click(function(){
   console.log("Enter the updateTask method");
   
   $.ajax({
-      url: '/add_task',
+      url: "/add_task",
       type: "POST",
       dataType: "json",
         data: {
@@ -220,9 +220,6 @@ $('#task-modal-button').click(function(){
         async: true,
         success: function (data) {
           console.log("Updated task");
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { 
-          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         } 
     })
 }
@@ -232,7 +229,7 @@ $('#task-modal-button').click(function(){
   console.log("Enter the updateTask method");
   
   $.ajax({
-      url: '/update_task',
+      url: "/update_task",
       type: "POST",
       dataType: "json",
         data: {
@@ -241,10 +238,7 @@ $('#task-modal-button').click(function(){
         async: true,
         success: function (data) {
           console.log("Updated task");
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) { 
-          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-        } 
+        }
     })
 }
 
