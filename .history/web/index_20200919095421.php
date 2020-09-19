@@ -47,6 +47,7 @@ $app->get('/', function() use($app) {
 
 
   $app->get('/update_task', function() use($app) {
+    $tasks = get_tasks();
     $app['monolog']->addDebug('logging output.');
     return $this->redirect('/');
   });
