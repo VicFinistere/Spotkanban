@@ -114,7 +114,6 @@ function get_tasks()
   {
     die("Connection failed: " . $conn->connect_error);
   }
-  
   $conn->set_charset("utf8");
   return mysqli_fetch_all($conn->query("SELECT * FROM task"));
 }
