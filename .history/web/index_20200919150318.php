@@ -56,12 +56,9 @@ $app->get('/', function() use($app) {
     });
 
   $app->post('/update_task', function(Request $request) use($app) {
-    $task_id = $request->get('id');
-    $task_name = $request->get('name');
-    $task_description = $request->get('description');
-    $task_status = $request->get('status');
+    $idSelect = $request->request->get('idSelect');
     $app['monolog']->addDebug('logging output.');
-    return $app->json($task_name, Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
+    return $app->json("UPDATE", Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
   });
 
 

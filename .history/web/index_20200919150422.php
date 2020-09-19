@@ -61,7 +61,7 @@ $app->get('/', function() use($app) {
     $task_description = $request->get('description');
     $task_status = $request->get('status');
     $app['monolog']->addDebug('logging output.');
-    return $app->json($task_name, Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
+    return $app->json($task_name, Response::HTTP_OK)->se
   });
 
 
