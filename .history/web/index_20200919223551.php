@@ -63,7 +63,7 @@ function remove_task($task_name){
   $req .= $task_name;
   $req .="'";
 
-  if ($conn->query($req) === TRUE) {
+  if ($conn->query($sql) === TRUE) {
     echo "Record deleted successfully";
   } else {
     echo "Error deleting record: " . $conn->error;
