@@ -45,11 +45,11 @@ $app->get('/', function() use($app) {
     return $app['twig']->render('index.twig', ['tasks' => $tasks]);
   });
 
-
-  $app->get('/update_task', function() use($app) {
+  
+  $app->get('/', function() use($app) {
     $tasks = get_tasks();
     $app['monolog']->addDebug('logging output.');
-    return $this->redirect('/');
+    return $app['twig']->render('index.twig', ['tasks' => $tasks]);
   });
 
 

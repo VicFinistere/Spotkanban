@@ -220,7 +220,8 @@ $('#selectType').on('change', function (e) {
 	
 });
 
-$('button:contains("Update task").click(function(){update_task();});
+$('button:contains("Text").click(function(){update_task();});
+
 function updateTask(){
   $.ajax({
       url: '{{ path('update_task') }}',
