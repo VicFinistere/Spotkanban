@@ -128,8 +128,8 @@ $app->get('/', function() use($app) {
     $remove_req = remove_task($task_name);
     //create_task($task_name, $task_description, $task_status);
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
-    //$response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
-    $response->setContent(json_encode(array('data' => $remove_req), JSON_NUMERIC_CHECK));
+    $response->setContent(json_encode(array('data' => "OSEF"), JSON_NUMERIC_CHECK));
+    //$response->setContent(json_encode(array('data' => $remove_req), JSON_NUMERIC_CHECK));
 
     return $response;    
   });
