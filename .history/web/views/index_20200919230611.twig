@@ -211,19 +211,23 @@ $('#task-modal-button').click(function(){
   alert("Enter the handleTask method for " + action);
 
   
-  var task_name =  "";
-  if($("#task-name").val() != ''){
-    task_name =  $("#task-name").val();
-  } 
   
-  var task_description = "";
-  if($("#task-description").val() != ''){
-    var task_description = $("#task-description").val();
+  if($("#task-name").val() != ''){
+    var task_name =  $("#task-name").val();
+  } else {
+    var task_name =  "";
   }
 
-  var task_status = "";
+  if($("#task-description").val() != ''){
+    var task_description = $("#task-description").val();
+  } else {
+    var task_description = "";
+  }
+
   if($("#task-status").val() != ''){
     var task_status = $("#task-status").val();
+  } else {
+    var task_status = "";
   }
 
   $.ajax({
