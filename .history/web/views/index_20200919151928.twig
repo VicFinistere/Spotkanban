@@ -197,17 +197,17 @@
 $('#task-modal-button').click(function(){
   
   if($('#task-modal-button').text() == ("Update task")){
-    hadnleTask("Update");
+    updateTask();
   } else if($('#task-modal-button').text() == ("Add task"))
   {
-    handleTask("Add");
+    addTask();
   }
 });
 
 
-  function handleTask(action){
-  
-  alert("Enter the handleTask method for " + action);
+  function handleTask(){
+
+  console.log("Enter the addTask method");
   
   var task_id = "ID";
   var task_name = "NAME";
@@ -227,11 +227,11 @@ $('#task-modal-button').click(function(){
         async: true,
         success: function (data) {
           alert(data);
-          console.log("SUCESS handle task" + task_id  + " " + task_name + " " + task_description + " " + task_status);
+          console.log("SUCESS Updated task" + task_id  + " " + task_name + " " + task_description + " " + task_status);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
           alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-          console.log("FAIL handle task" + task_id  + " " + task_name + " " + task_description + " " + task_status);
+          console.log("FAIL Updated task" + task_id  + " " + task_name + " " + task_description + " " + task_status);
         } 
     });
 }
