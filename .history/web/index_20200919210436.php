@@ -67,7 +67,7 @@ $app->get('/', function() use($app) {
     {
       die("Connection failed: " . $conn->connect_error);
     }
-    $req = "SELECT * FROM task WHERE name LIKE "."'".$task_name."'";
+    $req = "SELECT * FROM task WHERE name LIKE '".$task_name."'";
     $conn->set_charset("utf8");
     $fetched_task = mysqli_fetch_all($conn->query($req));
 
