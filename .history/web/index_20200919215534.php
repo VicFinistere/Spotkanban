@@ -60,7 +60,6 @@ function remove_task($task_name){
   // SELECT 
   $req = "DELETE FROM task WHERE name LIKE "."'".$task_name."'";
   $conn->exec($req);
-  return $req;
 }
 
 function create_task($task_name, $task_description, $task_status){
@@ -81,7 +80,6 @@ function create_task($task_name, $task_description, $task_status){
   
   // SELECT 
   $req = "INSERT INTO task (name, status, description) VALUES ("."'".$task_name."'".", "."'".$task_status."'".", "."'".$task_description."'".")";
-  
   $conn->set_charset("utf8");
   $conn->exec($req);  
 }
@@ -121,12 +119,10 @@ $app->get('/', function() use($app) {
     $task_description = $request->get('description');
     $task_status = $request->get('status');
     $fetched_task = get_task($task_name);
-    $remove_req = remove_task($task_name);
+    remove_task($task_name);
     create_task($task_name, $task_description, $task_status);
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
-    //$response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
-    $response->setContent(json_encode(array('data' => $remove_req), JSON_NUMERIC_CHECK));
-
+    $response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
     return $response;    
   });
 
