@@ -47,12 +47,9 @@ $app->get('/', function() use($app) {
   });
 
   $app->post('/add_task', function(Request $request) use($app) {
-    $task_id = $request->query->get('idSelect');
-    $task_name = $request->query->get('name');
-    $task_description = $request->query->get('description');
-    $task_status = $request->query->get('status');
+    $idSelect = $request->query->get('idSelect');
     $app['monolog']->addDebug('logging output.');
-    return $app->json([$task_id, $task_name, $task_description, $task_status], Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
+    return $app->json("ADD", Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
   });
 
   $app->post('/update_task', function(Request $request) use($app) {
