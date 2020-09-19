@@ -72,7 +72,7 @@ $app->get('/', function() use($app) {
     $fetched_task = mysqli_fetch_all($conn->query($req));
 
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
-    $response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
+    $response->setContent(json_encode(array('data' => $req), JSON_NUMERIC_CHECK));
     return $response;    
   });
 
