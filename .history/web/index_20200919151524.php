@@ -55,14 +55,14 @@ $app->get('/', function() use($app) {
     return $app->json($task_name, Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
     });
 
-    $app->post('/updateTask', function(Request $request) use($app) {
-      $task_id = $request->get('id');
-      $task_name = $request->get('name');
-      $task_description = $request->get('description');
-      $task_status = $request->get('status');
-      $app['monolog']->addDebug('logging output.');
-      return $app->json($task_name, Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
-      });
+  $app->post('/updateTask', function(Request $request) use($app) {
+    $task_id = $request->get('id');
+    $task_name = $request->get('name');
+    $task_description = $request->get('description');
+    $task_status = $request->get('status');
+    $app['monolog']->addDebug('logging output.');
+    return $app->json($task_name, Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
+  });
 
 
 $app->get('/cowsay', function() use($app) {
