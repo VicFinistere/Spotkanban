@@ -214,16 +214,15 @@ var task-id = $("#task-index").val();
 var task-name =  $("#task-name").val();
 var task-description = $("#task-description").val();
 var task-status = $("#task-status").val();
-
   $.ajax({
       url: '/handleTask',
       type: "POST",
       dataType: "json",
         data: {
-          id:task-id,
-          name: task-name,
-          description: task-description,
-          status: task-status
+          id: $("#task-index").val(),
+          name: $("#task-name").val(),
+          description: $("#task-description").val(),
+          status: $("#task-status").val()
         },
         async: true,
         success: function (data) {
