@@ -67,9 +67,9 @@ $app->get('/', function() use($app) {
     {
       die("Connection failed: " . $conn->connect_error);
     }
-    $req = "SELECT * FROM task WHERE name=".$task_name;
+    
     $conn->set_charset("utf8");
-    $fetched_task = mysqli_fetch_all($conn->query($req));
+    $fetched_task = mysqli_fetch_all($conn->query("SELECT * FROM task WHERE name=".$task_name));
 
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
     $response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
