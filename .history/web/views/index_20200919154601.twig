@@ -163,7 +163,6 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="hidden" id="task-index"></input>
           <div class="form-group">
             <label for="task-name">Name</label>
             <input type="text" class="form-control" id="task-name" placeholder="Task name">
@@ -215,10 +214,10 @@ $('#task-modal-button').click(function(){
       type: "POST",
       dataType: "json",
         data: {
-          id: $("#task-index").val(),
-          name: $("#task-name").val(),
-          description: $("#task-description").val(),
-          status: $("#task-status").val()
+          id: 'ID',
+          name: 'NAME',
+          description: 'DESC',
+          status: 'STATUS'
         },
         async: true,
         success: function (data) {
@@ -233,7 +232,6 @@ $('#task-modal-button').click(function(){
 
 function modifyTask(index, name, status, description){
     $(".task-modal-title").html("Task : " + name);
-    $("#task-index").val(index);
     $("#task-name").val(name);
     $('#task-description').val(description);
     $('#task-status').val(status);
@@ -244,7 +242,6 @@ function modifyTask(index, name, status, description){
 
 function addTask(){
     $(".task-modal-title").html("Add a task");
-    $("#task-index").val("");
     $("#task-name").val("");
     $('#task-description').val("");
     $('#task-status').val("");

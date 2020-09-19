@@ -51,10 +51,10 @@ $app->get('/', function() use($app) {
     $task_name = $request->get('name');
     $task_description = $request->get('description');
     $task_status = $request->get('status');
-    $app['monolog']->addDebug('ID : ' + $task_id);
-    $app['monolog']->addDebug('Name : ' + $task_name);
-    $app['monolog']->addDebug('Description : ' + $task_description);
-    $app['monolog']->addDebug('Status : ' + $task_status);
+    $app['monolog']->addDebug('ID : '$task_id);
+    $app['monolog']->addDebug('Name : '$task_name);
+    $app['monolog']->addDebug('Description : '$task_description);
+    $app['monolog']->addDebug('Status : '$task_status);
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
     $response->setContent(json_encode(array('data' => $task_name), JSON_NUMERIC_CHECK));
     return $response;    

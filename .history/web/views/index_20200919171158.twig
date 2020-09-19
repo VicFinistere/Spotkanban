@@ -215,10 +215,10 @@ $('#task-modal-button').click(function(){
       type: "POST",
       dataType: "json",
         data: {
-          id: $("#task-index").val(),
-          name: $("#task-name").val(),
-          description: $("#task-description").val(),
-          status: $("#task-status").val()
+          id: 'ID',
+          name: 'NAME',
+          description: 'DESC',
+          status: 'STATUS'
         },
         async: true,
         success: function (data) {
