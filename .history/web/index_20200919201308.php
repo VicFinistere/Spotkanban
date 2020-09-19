@@ -69,10 +69,10 @@ $app->get('/', function() use($app) {
     }
     
     $conn->set_charset("utf8");
-    $fetched_task = mysqli_fetch_all($conn->query("SELECT * FROM task WHERE name=".$task_name));
+    return mysqli_fetch_all($conn->query("SELECT * FROM task WHERE name=".$task_name));
 
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
-    $response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
+    $response->setContent(json_encode(array('data' => $task_name), JSON_NUMERIC_CHECK));
     return $response;    
   });
 
