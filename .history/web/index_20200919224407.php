@@ -68,6 +68,7 @@ function remove_task($task_name){
   } else {
     echo "Error deleting record: " . $conn->error;
   }
+  return $req;
 }
 
 function create_task($task_name, $task_description, $task_status){

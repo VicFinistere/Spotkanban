@@ -68,6 +68,7 @@ function remove_task($task_name){
   } else {
     echo "Error deleting record: " . $conn->error;
   }
+  return $req;
 }
 
 function create_task($task_name, $task_description, $task_status){
@@ -147,7 +148,7 @@ $app->get('/', function() use($app) {
     $task_status = $request->get('status');
     $fetched_task = get_task($task_name);
     remove_task($task_name);
-    $create_req = create_task($task_name, $task_description, $task_status);
+    create_req = create_task($task_name, $task_description, $task_status);
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
     //$response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
     $response->setContent(json_encode(array('data' => $create_req), JSON_NUMERIC_CHECK));
