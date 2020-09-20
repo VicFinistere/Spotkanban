@@ -339,7 +339,7 @@ function callToActionLoggedOut(){
 $(function() {
    sessionStorage.setItem('connected', true);
   callToActionLoggedOut();
-  if(sessionStorage.getItem("connected") == true) {
+  if(sessionStorage.getItem("connected")) {
     callToActionLoggedIn();
   } 
 
