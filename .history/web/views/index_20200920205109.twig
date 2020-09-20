@@ -359,7 +359,6 @@ function login(){
   sessionStorage.setItem('username', $('#member-name').val());
   sessionStorage.setItem('password', $('#member-password').val());
   sessionStorage.setItem('connected', 'true');
-  alert(sessionStorage.getItem("username"));
   $(".call-to-action").text("Add a task");
   $(".login-button").text("Log out" + sessionStorage.getItem("username"));
 
