@@ -80,15 +80,21 @@ function create_task($task_name, $task_description, $task_status){
     $conn = new PDO("mysql:host=$server;dbname=$db", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      // SELECT 
-    if($task_status != ""){
-      $format = "INSERT INTO task (name, status, description) VALUES ('%s', '%s', '%s') ";
-      $sql = sprintf($format, $task_name, $task_status, $task_description);
-    } else {
-      $format = "INSERT INTO task (name, description) VALUES ('%s', '%s') ";
-      $sql = sprintf($format, $task_name, $task_description);
-    }
-  
+    // SELECT 
+  if($task_status != ""){
+    $format = "INSERT INTO task (name, status, description) VALUES ('%s', '%s', '%s') ";
+    $sql = sprintf($format, $task_name, $task_status, $task_description);
+
+} else {
+    $format = "INSERT INTO task (name, description) VALUES ('%s', '%s') ";
+    $sql = sprintf($format, $task_name, $task_description);
+
+     // set the PDO error mode to exception
+     $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+     VALUES ('John', 'Doe', 'john@example.com')";
+  }
+   
+    
     // use exec() because no results are returned
     $conn->set_charset("utf8");
     $conn->exec($sql);

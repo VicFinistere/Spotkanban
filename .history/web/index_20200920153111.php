@@ -88,7 +88,8 @@ function create_task($task_name, $task_description, $task_status){
       $format = "INSERT INTO task (name, description) VALUES ('%s', '%s') ";
       $sql = sprintf($format, $task_name, $task_description);
     }
-  
+   
+    
     // use exec() because no results are returned
     $conn->set_charset("utf8");
     $conn->exec($sql);
