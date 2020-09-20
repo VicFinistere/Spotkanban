@@ -125,10 +125,10 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-              <h4 class="login-modal-title"></h4>
+              <h4 class="modal-title">Connect to SpotKanban</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body-login">
+      <div class="modal-body">
         <form>
           <div class="form-group">
             <label for="member-name">Username</label>
@@ -138,10 +138,10 @@
             <label for="member-password">Password</label>
             <input type="text" class="form-control" id="member-password" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary" id="login-modal-button"></button>
+          <button type="submit" class="btn btn-primary" id="login-modal-button">Connect</button>
       </form>
-      </div>
 
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
@@ -207,12 +207,7 @@ $('#task-modal-button').click(function(){
 });
 
 $('#login-modal-button').click(function(){
-  if($('login-modal-button').text() == "Connect"){
-    login();
-  } else {
-    logout();
-  }
-  
+  login();
 });
 
 $('#task-modal-second-button').click(function(){
@@ -341,27 +336,24 @@ function addTask(){
 
 function login(){
   sessionStorage.setItem('connected', 'true');
-  $("#login-modal-title").html("Logout to SpotKanban");
-  $(".call-to-action").text("Add a task");
-  $(".login-button").text("Log out");
-  $("#login-modal-button").html("Log out");
-  $('.modal-body-login').show();
 }
 
-function logout(){
-    $("#login-modal-title").html("Connect to SpotKanban");
+function callToActionLoggedIn(){
+    $(".call-to-action").text("Add a task");
+    $(".login-button").text("Log out");
+}
+
+function callToActionLoggedOut(){
     $(".call-to-action").text("Log/Spot in to use !");
     $(".login-button").text("Connect");
-    $("#login-modal-button").html("Connect");
-    $('.modal-body-login').hide();
 }
 
 $(function() { 
   
   if(sessionStorage.getItem("connected") == 'true') {
-    login();
+    callToActionLoggedIn();
   } else {
-    logout();
+    callToActionLoggedOut();
   } 
 
 });
