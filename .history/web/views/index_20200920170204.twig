@@ -338,6 +338,10 @@ function callToActionLoggedOut(){
 
 $(function() {
   callToActionLoggedOut();
+  if(sessionStorage.getItem("connected")) {
+    callToActionLoggedIn();
+  } 
+
 });
 
 </script>
