@@ -143,7 +143,7 @@ $app->get('/', function() use($app) {
     
     // CREATE TASK
     $create_req = create_task($task_name, $task_description, $task_status);
-    return $app->json($create_req);   
+    return $app->json($create_req));   
   });
 
 
