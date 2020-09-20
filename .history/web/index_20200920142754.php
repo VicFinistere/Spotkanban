@@ -86,7 +86,7 @@ function create_task($task_name, $task_description, $task_status){
   }
   
   // SELECT 
-  if($task_status != ""){
+  if(){
     $format = "INSERT INTO task (name, status, description) VALUES ('%s', '%s', '%s') ";
     $req = sprintf($format, $task_name, $task_status, $task_description);
   } else {
