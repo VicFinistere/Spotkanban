@@ -137,7 +137,6 @@ $app->get('/', function() use($app) {
     //$fetched_task = get_task($task_name);
     
     $msg = $task_id." : OK";
-
     // DELETE OLD TASK
     if($task_id != ''){
       $msg = remove_task($task_id);  
@@ -146,7 +145,7 @@ $app->get('/', function() use($app) {
     // CREATE TASK
     //$create_req = create_task($task_name, $task_description, $task_status);
 
-    return json_encode(array('id' => $task_id, 'msg' => $msg));
+    return json_encode(array('id' => $task_id));
   });
 
 
