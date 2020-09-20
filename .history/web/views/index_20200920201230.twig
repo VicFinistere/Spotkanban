@@ -317,8 +317,7 @@ $('#task-modal-second-button').click(function(){
 
 
 function loginButton(){
-  if(sessionStorage.getItem("connected") == 'true' &&  $(".login-button").text() != "Connect") 
-  {
+  if(sessionStorage.getItem("connected") == 'true' &&  $(".login-button").text() != "Connect") {
     logout();
   } else {
     $('#myLoginModal').modal(); 
