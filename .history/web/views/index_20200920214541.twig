@@ -81,11 +81,9 @@
               <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "DOING" %}
-   {% if task.4 == app.session.get('username') %}
   <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1}}', '{{task.2}}', '{{task.3}}');">
   {{task.1}}
   </li>
-  {% endif %}
   {% endif %}
   {% endfor %}
   </ul>
@@ -105,11 +103,9 @@
                 <ul class="list-group list-group-flush">
     {% for task in tasks %}
   {% if task.2 == "DONE" %}
-   {% if task.4 == app.session.get('username') %}
   <li class="list-group-item" onclick="modifyTask('{{task.0}}', '{{task.1}}', '{{task.2}}', '{{task.3}}');">
   {{task.1}}
   </li>
-  {% endif %}
   {% endif %}
   {% endfor %}
   </ul>
