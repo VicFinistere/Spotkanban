@@ -139,6 +139,8 @@ $app->get('/', function() use($app) {
     if($task_id != ''){
       remove_task($task_name);
     }
+
+    //$create_req = create_task($task_name, $task_description, $task_status);
     
     // CREATE TASK
     create_task($task_name, $task_description, $task_status);
