@@ -76,30 +76,29 @@ function create_task($task_name, $task_description, $task_status){
   $password = $url["pass"];
   $db = substr($url["path"], 1);
 
-  // Use the database 
-  $conn = new mysqli($server, $username, $password, $db);
+  try {
+    $conn = new PDO("mysql:host=$server;dbname=$db", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  // Check connection
-  if ($conn->connect_error) 
-  {
-    die("Connection failed: " . $conn->connect_error);
+      // SELECT 
+    if($task_status != ""){
+      $sql = "INSERT INTO task (name, status, description) VALUES ('DUR', 'DUR', '%s') ";
+      //$sql = sprintf($format, $task_name, $task_status, $task_description);
+    } else {
+      $format = "INSERT INTO task (name, description) VALUES ('%s', '%s') ";
+      $sql = sprintf($format, $task_name, $task_description);
+    }
+  
+    // use exec() because no results are returned
+    $conn->set_charset("utf8");
+    $conn->exec($sql);
+    $msg = "New record created successfully";
+  } catch(PDOException $e) {
+    $msg = $sql . "<br>" . $e->getMessage();
   }
   
-  // SELECT 
-  if($task_status != ""){
-    $format = "INSERT INTO task (name, status, description) VALUES ('%s', '%s', '%s') ";
-    $req = sprintf($format, $task_name, $task_status, $task_description);
-  } else {
-    $format = "INSERT INTO task (name, description) VALUES ('%s', '%s') ";
-    $req = sprintf($format, $task_name, $task_description);
-  }
-  $conn->set_charset("utf8");
-
-  if ($conn->query($req) === TRUE) {
-    return "New record created ( ".$req." )successfully";
-  } else {
-    return "Error: " . $req . "<br>" . $conn->error;
-  }
+  $conn = null;
+  return $msg;
 }
 
 function get_tasks()
