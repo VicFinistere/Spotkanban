@@ -210,6 +210,8 @@ $('#login-modal-button').click(function(){
   if($('#login-modal-button').text() == "Connect"){
     
     if($('#member-name').val() && $('#member-password').val()){
+      sessionStorage.setItem('username', $('#member-name').val());
+      alert("Now you can use the board as "+  sessionStorage.getItem("username") +"!");
       login();
     } else {
       alert("You have to enter an username and password ! \n Remember to use a password that you don't use anywhere else.")
@@ -354,19 +356,14 @@ function addTask(){
 }     
 
 function login(){
-  sessionStorage.setItem('username', $('#member-name').val());
-  sessionStorage.setItem('password', $('#member-password').val());
   sessionStorage.setItem('connected', 'true');
-  alert(" Hello " + sessionStorage.getItem("username")  + " !");
   $(".call-to-action").text("Add a task");
   $(".login-button").text("Log out" + sessionStorage.getItem("username"));
 
 }
 
 function logout(){
-    sessionStorage.setItem('username', $('#member-name').val());
-    sessionStorage.setItem('password', $('#member-password').val());
-    alert(" You are now disconnected !");
+    sessionStorage.setItem('connected', 'false');
     $(".call-to-action").text("Log/Spot in to use !");
     $(".login-button").text("Connect");
 }
