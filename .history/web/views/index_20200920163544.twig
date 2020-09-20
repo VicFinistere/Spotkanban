@@ -326,24 +326,9 @@ function addTask(){
 
 }     
 
-function callToActionLoggedIn(){
-    $("#call-to-action").val("Spotted !");
-    $("#login-button").val("Add a task");
+function callToAction(){
+    $("#call-to-action").val("Connect to add a task");
 }
-
-function callToActionLoggedOut(){
-    $("#call-to-action").val("Spot in !");
-    $("#login-button").val("Connect");
-}
-
-$(function() {
-  if(sessionStorage.getItem("connected")) {
-    callToActionLoggedIn();
-  } else {
-    callToActionLoggedOut();
-  }
-
-});
 
 </script>
 {% endblock %}
