@@ -143,7 +143,7 @@ $app->get('/', function() use($app) {
     
     // CREATE TASK
     //$create_req = create_task($task_name, $task_description, $task_status);
-    return $app->json($task_id, Response::HTTP_OK)->setEncodingOptions(JSON_NUMERIC_CHECK);
+    return $app->json(json_encode($task_id));   
   });
 
 
