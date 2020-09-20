@@ -320,7 +320,6 @@ $('#task-modal-second-button').click(function(){
 function loginButton(){
   if(sessionStorage.getItem("connected") == 'true') {
     logout();
-    alert("You are disconnected !");
   } else {
     $('#myLoginModal').modal(); 
   }
