@@ -365,6 +365,9 @@ function login(){
 }
 
 function logout(){
+    sessionStorage.setItem('username', "");
+    sessionStorage.setItem('password', "");
+    sessionStorage.setItem('connected', 'false');
     $(".call-to-action").text("Log/Spot in to use !");
     $(".login-button").text("Connect");
 }
@@ -374,9 +377,6 @@ $(function() {
   if(sessionStorage.getItem("connected") == 'true') {
     login();
   } else {
-    sessionStorage.setItem('username', "");
-    sessionStorage.setItem('password', "");
-    sessionStorage.setItem('connected', 'false');
     logout();
   } 
 
