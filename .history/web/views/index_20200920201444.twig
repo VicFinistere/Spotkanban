@@ -359,31 +359,25 @@ function login(){
   sessionStorage.setItem('password', $('#member-password').val());
   sessionStorage.setItem('connected', 'true');
   alert(" Hello " + sessionStorage.getItem("username")  + " !");
+  $(".call-to-action").text("Add a task");
+  $(".login-button").text("Log out" + sessionStorage.getItem("username"));
+
 }
 
 function logout(){
     sessionStorage.setItem('username', $('#member-name').val());
     sessionStorage.setItem('password', $('#member-password').val());
     alert(" You are now disconnected !");
+    $(".call-to-action").text("Log/Spot in to use !");
+    $(".login-button").text("Connect");
 }
-
-function loadConnected(){
-   $(".call-to-action").text("Add a task");
-  $(".login-button").text("Log out" + sessionStorage.getItem("username"));
-}
-
-function loadDisconnected(){
-   $(".call-to-action").text("Log/Spot in to use !");
-  $(".login-button").text("Connect");
-}
-
 
 $(function() { 
   
   if(sessionStorage.getItem("connected") == 'true') {
-    loadConnected();
+    login();
   } else {
-    loadDisconnected();
+    logout();
   } 
 
 });
