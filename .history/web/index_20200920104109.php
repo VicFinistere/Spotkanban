@@ -142,8 +142,8 @@ $app->get('/', function() use($app) {
     }
     
     // CREATE TASK
-    $create_req = create_task($task_name, $task_description, $task_status);
-    return json_encode(array('req' => $create_req));
+    //$create_req = create_task($task_name, $task_description, $task_status);
+    return json_encode(array('id' => $task_id));
   });
 
 
