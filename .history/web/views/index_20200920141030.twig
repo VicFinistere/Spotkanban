@@ -222,12 +222,12 @@ $('#task-modal-button').click(function(){
   
   var task_description = "Task description : ...";
   if($("#task-description").val() != ''){
-    task_description = $("#task-description").val();
+    var task_description = $("#task-description").val();
   }
 
   var task_status = "TODO";
   if($("#task-status").val() != ''){
-    task_status = $("#task-status").val();
+    var task_status = $("#task-status").val();
   }
 
   $.ajax({
