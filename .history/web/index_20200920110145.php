@@ -65,7 +65,7 @@ function remove_task($task_id){
   if ($conn->query($req) === TRUE) {
     return "Record deleted successfully";
   } else {
-    return "Error deleting record: (".$format.")". $conn->error;
+    return "Error deleting record: "..$format."". $conn->error;
   }
 }
 
