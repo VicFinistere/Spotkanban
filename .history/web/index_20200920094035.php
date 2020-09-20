@@ -139,7 +139,7 @@ $app->get('/', function() use($app) {
     //$response->setContent(json_encode(array('data' => $fetched_task), JSON_NUMERIC_CHECK));
     $response = new \Symfony\Component\HttpFoundation\JsonResponse();
     $response->setEncodingOptions(JSON_NUMERIC_CHECK);
-    $response->setData();
+    $response->setData());
     return $response;    
   });
 
