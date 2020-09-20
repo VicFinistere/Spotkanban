@@ -319,7 +319,6 @@ function modifyTask(index, name, status, description){
 }     
 
 function addTask(){
-  if(sessionStorage.getItem("connected") == 'true') {
     $(".task-modal-title").html("Add a task");
     $("#task-index").val("");
     $("#task-name").val("");
@@ -328,9 +327,6 @@ function addTask(){
     $('#task-modal-button').html("Add task");
     $('#task-modal-second-button').html("Cancel");
     $('#myTaskModal').modal();
-  } else {
-    $('#myLoginModal').modal();
-  }
 
 }     
 
