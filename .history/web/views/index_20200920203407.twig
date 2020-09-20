@@ -368,21 +368,13 @@ function logout(){
 }
 
 function loadConnected(){
-  if(sessionStorage.getItem("connected") == 'true') {
-    $(".call-to-action").text("Add a task");
-    $(".login-button").text("Log out" + sessionStorage.getItem("username"));
-  } else {
-    loadDisconnected();
-  }
+   $(".call-to-action").text("Add a task");
+  $(".login-button").text("Log out" + sessionStorage.getItem("username"));
 }
 
 function loadDisconnected(){
-  if(sessionStorage.getItem("connected") == 'true') {
-    loadConnected();
-  } else {
-    $(".call-to-action").text("Log/Spot in to use !");
-    $(".login-button").text("Connect");
-  }
+   $(".call-to-action").text("Log/Spot in to use !");
+  $(".login-button").text("Connect");
 }
 
 
