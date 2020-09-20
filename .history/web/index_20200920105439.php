@@ -139,7 +139,7 @@ $app->get('/', function() use($app) {
     // DELETE OLD TASK
     if($task_id != ''){
       remove_task($task_id);
-      $task_id = "Removed";
+      $task_id = "Removed"
     }
   
     // CREATE TASK
