@@ -249,8 +249,8 @@ $('#login-modal-button').click(function(){
       sessionStorage.setItem('password', $('#member-password').val());
       sessionStorage.setItem('connected', 'true');
       alert("You are connected " + $('#member-name').val() + " !");
-      loadConnected();
       connectToYourSpace();
+      loadConnected();
     } else {
       alert("You have to enter your username and password !")
     }
@@ -264,8 +264,8 @@ $('#login-modal-button').click(function(){
       sessionStorage.setItem('email', $('#member-mail').val());
       sessionStorage.setItem('connected', 'true');
       alert("You are connected " + $('#member-name').val() + " !");
-      loadConnected();
       connectToYourSpace();
+      loadConnected();
     } else {
       alert("You have to enter an username an email and a password ! \n Remember to use a password that you don't use anywhere else.");
     }
