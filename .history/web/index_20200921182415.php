@@ -71,7 +71,7 @@ function get_member($member_name, $member_password){
   $fetched_task = mysqli_fetch_row($conn->query($req));
   
   if($fetched_task != null){
-    $result = "Member is found ".$fetched_task['verified']."! ".$fetched_task." ( ".$req." )";
+    $result = "Member is found ".$fetched_task[0]['verified']."! ".$fetched_task." ( ".$req." )";
   } else {
     $result = "Bad credentials...".$fetched_task." ( ".$req." )";
   }
