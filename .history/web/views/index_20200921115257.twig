@@ -416,9 +416,8 @@ $(function() {
     loadDisconnected();
   } 
 
-  var getUrl = window.location;
-  var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];  
-  if(sessionStorage.getItem("username") != ""){
+    var getUrl = window.location;
+    var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];  if(sessionStorage.getItem("username") != ""){
     var username = sessionStorage.getItem("username");
     var url = baseUrl + username;
     alert(url);
