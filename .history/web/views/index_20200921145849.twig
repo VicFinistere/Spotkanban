@@ -432,6 +432,7 @@ function connectToYourSpace(){
     alert("Welcome " + sessionStorage.getItem("username"));
     var username = sessionStorage.getItem("username");
     var associatedUrl = baseUrl + username;
+    alert("Your page is " + associatedUrl);
     window.location.replace(associatedUrl);
   }
 }

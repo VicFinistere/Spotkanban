@@ -431,7 +431,8 @@ function connectToYourSpace(){
   if(sessionStorage.getItem("username") && sessionStorage.getItem("username").length > 0){
     alert("Welcome " + sessionStorage.getItem("username"));
     var username = sessionStorage.getItem("username");
-    var associatedUrl = baseUrl + username;
+    var associatedUrl = baseUrl + encodeURI(username);
+    alert("Your page is " + associatedUrl);
     window.location.replace(associatedUrl);
   }
 }
