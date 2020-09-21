@@ -267,8 +267,7 @@ $('#login-modal-button').click(function(){
           alert("Error: " + errorThrown); 
         } 
       });
-      
-      {# TODO : Replace 1 == 2 #}
+
       if(1 == 2){
         sessionStorage.setItem('username', member_name);
         sessionStorage.setItem('password', member_password);
@@ -277,7 +276,6 @@ $('#login-modal-button').click(function(){
         loadConnected();
         connectToYourSpace();
       }
-
     } else {
       alert("You have to enter your username and password !")
     }

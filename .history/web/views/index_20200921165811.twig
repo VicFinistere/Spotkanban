@@ -267,17 +267,14 @@ $('#login-modal-button').click(function(){
           alert("Error: " + errorThrown); 
         } 
       });
-      
-      {# TODO : Replace 1 == 2 #}
-      if(1 == 2){
-        sessionStorage.setItem('username', member_name);
-        sessionStorage.setItem('password', member_password);
-        sessionStorage.setItem('connected', 'true');
-        alert("You are connected " + $('#member-name').val() + " !");
-        loadConnected();
-        connectToYourSpace();
-      }
 
+
+      sessionStorage.setItem('username', member_name);
+      sessionStorage.setItem('password', member_password);
+      sessionStorage.setItem('connected', 'true');
+      alert("You are connected " + $('#member-name').val() + " !");
+      loadConnected();
+      connectToYourSpace();
     } else {
       alert("You have to enter your username and password !")
     }
