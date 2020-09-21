@@ -375,11 +375,8 @@ function loginButton(){
     sessionStorage.setItem('email', "");
     sessionStorage.setItem('connected', 'false');
     alert("You are disconnected !");
+    disconnectToYourSpace();
     loadDisconnected();
-    var getUrl = window.location;
-    var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";  
-    window.location.replace(baseUrl);
-    
   } else {
     $('#myLoginModal').modal(); 
   }
@@ -435,6 +432,13 @@ function connectToYourSpace(){
     var associatedUrl = baseUrl + username;
     window.location.href=associatedUrl;
   }
+}
+
+function disconnectToYourSpace(){
+  alert("We hope to see you soon !");
+   var getUrl = window.location;
+  var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";  
+  window.location.replace(baseUrl);
 }
 
 $(function() { 
