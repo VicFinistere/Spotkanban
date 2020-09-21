@@ -436,8 +436,13 @@ function connectToYourSpace(){
 function disconnectToYourSpace(){
    var getUrl = window.location;
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";  
-  var currentUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]; 
-  window.location.replace(baseUrl);
+  var currentUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+
+  if(sessionStorage.getItem("username") && sessionStorage.getItem("username").length > 0){
+    var username = sessionStorage.getItem("username");
+    var associatedUrl = baseUrl + encodeURI(username);
+    window.location.replace(baseUrl);
+  }
 }
 
 $(function() { 
