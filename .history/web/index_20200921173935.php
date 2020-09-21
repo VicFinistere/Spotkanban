@@ -38,12 +38,13 @@ function set_member($member_name, $member_password, $member_mail){
   $req = sprintf($format, addslashes($member_name), addslashes($member_password), addslashes($member_mail));
   
   $conn->set_charset("utf8");
-
-  if ($conn->query($req) === TRUE) {
-    return "New record created ( ".$req." )successfully";
+  $fetched_task = mysqli_fetch_all($conn->query($req));
+  if($fetched_task != null){
+    $result = "Member is found ! ".$fetched_task." ( ".$req." )";
   } else {
-    return "Error: " . $req . "<br>" . $conn->error;
+    $result = "Bad credentials...".$fetched_task." ( ".$req." )";
   }
+  return $result;
 }
 
 
