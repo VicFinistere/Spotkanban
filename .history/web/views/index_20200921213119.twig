@@ -316,9 +316,11 @@ $('#login-modal-button').click(function(){
               
               alert("Thanks for your registration " + $('#member-name').val() + " ! \n 
               You are going to receive a mail.");
+
               sessionStorage.setItem('username', member_name);
               sessionStorage.setItem('password', member_password);
               sessionStorage.setItem('email', member_mail);
+              
               {# sessionStorage.setItem('connected', 'true'); #}
               {# loadConnected(); #}
               {# connectToYourSpace(); #}
