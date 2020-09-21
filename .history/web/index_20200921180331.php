@@ -34,7 +34,7 @@ function set_member($member_name, $member_password, $member_mail){
   }
   
   // INSERT 
-  $format = "INSERT INTO member (username, paswword, team) VALUES ('%s', PASSWORD('%s'), '%s') ";
+  $format = "INSERT INTO member (username, paswword, team) VALUES ('%s', PASSWORD('%s'à, '%s') ";
   $req = sprintf($format, addslashes($member_name), addslashes($member_password), addslashes($member_mail));
   
   $conn->set_charset("utf8");
