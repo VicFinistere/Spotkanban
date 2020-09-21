@@ -421,9 +421,9 @@ $(function() {
     var username = sessionStorage.getItem("username");
     var baseUrl = document.location.origin;
     var url = baseUrl + username;
-    console.log(url);
+    //$(location).attr(‘href’, url);
   } else {
-    console.log(baseUrl);
+    //$(location).attr(‘href’, baseUrl);
   }
   
 });
