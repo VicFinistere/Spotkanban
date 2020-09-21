@@ -187,19 +187,38 @@ function get_tasks($team="")
   return mysqli_fetch_all($conn->query($req));
 }
 
-function send_mail($member_name, $member_password, $member_email){
+function send_mail($username, $password, $email){
+
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+  $server = $url["host"];
+  $username = $url["user"];
+  $password = $url["pass"];
+  $db = substr($url["path"], 1);
+
+  // Use the database 
+  $conn = new mysqli($server, $username, $password, $db);
+
+  // Check connection
+  if ($conn->connect_error) 
+  {
+    die("Connection failed: " . $conn->connect_error);
+  }
   
-  $secret = md5(parse_url(getenv("CLEARDB_DATABASE_URL")).password_hash($member_password).openssl_encrypt($member_email));
+  
+  $conn->set_charset("utf8");
+}
+
+  $link =
   $subject = "Spotkanban account verification"; 
   $message = "<h1>Spotkanban</h1>";
-  $message .= "<p>Hello ".$member_name." ! Please visit this link to verify your account and begin to use the Spotkanban</p>";
-  $message .= "<p><a href='".url_for("/")."/verify-account/".$secret."'>Account verification link</a></p>";
+  $message .= "<p>Hello ".$username." ! Please visit this link to verify your account and begin to use the Spotkanban</p>";
+  $message .= "<p><a href='".$link."'>Account verification link</a></p>";
   $header = "From:Spotkanban-no-reply@board.com \r\n";
   $header .= "Cc:zoebelleton@gmail.com \r\n";
   $header .= "MIME-Version: 1.0\r\n";
   $header .= "Content-type: text/html\r\n";
   
-  $retval = mail ($member_email, $subject, $message, $header);
+  $retval = mail ($email, $subject, $message, $header);
   
   if( $retval == true ) {
     echo "Message sent successfully...";
@@ -237,11 +256,6 @@ $app->get('/', function() use($app) {
     $member = set_member($member_name, $member_password, $member_mail);
     send_mail($member_name, $member_password, $member_mail);
     return json_encode(array('member_name' => $member_name, 'member_password' => $member_password, 'member' => $member));
-  });
-
-  $app->get('/verify-account/{secret}', function($secret) use($app) {
-    $app['monolog']->addDebug('logging index output.');
-    return $app['twig']->render('index.twig', ['secret' => $secret]);
   });
 
   $app->post('/handleTask', function(Request $request) use($app) {

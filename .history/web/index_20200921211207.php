@@ -193,7 +193,7 @@ function send_mail($member_name, $member_password, $member_email){
   $subject = "Spotkanban account verification"; 
   $message = "<h1>Spotkanban</h1>";
   $message .= "<p>Hello ".$member_name." ! Please visit this link to verify your account and begin to use the Spotkanban</p>";
-  $message .= "<p><a href='".url_for("/")."/verify-account/".$secret."'>Account verification link</a></p>";
+  $message .= "<p><a href='"url_for("/")."/verify-account/".$secret."'>Account verification link</a></p>";
   $header = "From:Spotkanban-no-reply@board.com \r\n";
   $header .= "Cc:zoebelleton@gmail.com \r\n";
   $header .= "MIME-Version: 1.0\r\n";
@@ -237,11 +237,6 @@ $app->get('/', function() use($app) {
     $member = set_member($member_name, $member_password, $member_mail);
     send_mail($member_name, $member_password, $member_mail);
     return json_encode(array('member_name' => $member_name, 'member_password' => $member_password, 'member' => $member));
-  });
-
-  $app->get('/verify-account/{secret}', function($secret) use($app) {
-    $app['monolog']->addDebug('logging index output.');
-    return $app['twig']->render('index.twig', ['secret' => $secret]);
   });
 
   $app->post('/handleTask', function(Request $request) use($app) {

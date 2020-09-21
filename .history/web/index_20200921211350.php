@@ -239,11 +239,6 @@ $app->get('/', function() use($app) {
     return json_encode(array('member_name' => $member_name, 'member_password' => $member_password, 'member' => $member));
   });
 
-  $app->get('/verify-account/{secret}', function($secret) use($app) {
-    $app['monolog']->addDebug('logging index output.');
-    return $app['twig']->render('index.twig', ['secret' => $secret]);
-  });
-
   $app->post('/handleTask', function(Request $request) use($app) {
     $task_id = $request->get('id');
     $task_name = $request->get('name');
