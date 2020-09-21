@@ -16,7 +16,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
-function get_member($member_name, $member_password){
+function get_mbmer($member_name, $member_password){
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
   $server = $url["host"];
   $username = $url["user"];
@@ -168,8 +168,8 @@ $app->get('/', function() use($app) {
   $app->post('/login', function(Request $request) use($app) {
     $member_name = $request->get('member_name');
     $member_password = $request->get('member_password');
-    $member = get_member($member_name, $member_password);
-    return json_encode(array('member_name' => $member_name, 'member_password' => $member_password, 'member' => $member));
+    get_member($member_name, $member_password);
+    return json_encode(array('member_name' => $member_name, 'member_password' => $member_password));
   });
 
   $app->post('/handleTask', function(Request $request) use($app) {
