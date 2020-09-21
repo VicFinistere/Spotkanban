@@ -262,20 +262,17 @@ $('#login-modal-button').click(function(){
           alert(JSON.stringify(data));
           alert(data['member']);
           if(data['member'].includes("is found")){
-              
               if(data['member'].includes("is found 0")){
                 alert("You account is not yet verified !");
               } else {
                 alert("You have a verified account !");
               }
-
               sessionStorage.setItem('username', member_name);
               sessionStorage.setItem('password', member_password);
               sessionStorage.setItem('connected', 'true');
               alert("You are connected " + $('#member-name').val() + " !");
               loadConnected();
               connectToYourSpace();
-              
           } else {
             alert('Wrong credentials ! You can create another account or try to connect again.')
           }
