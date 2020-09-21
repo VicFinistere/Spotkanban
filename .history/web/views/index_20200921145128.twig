@@ -429,7 +429,6 @@ function connectToYourSpace(){
   var currentUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 
   if(sessionStorage.getItem("username") && sessionStorage.getItem("username").length > 0){
-    alert("Welcome " + username);
     var username = sessionStorage.getItem("username");
     var associatedUrl = baseUrl + encodeURI(username);
     window.location.replace(associatedUrl);
