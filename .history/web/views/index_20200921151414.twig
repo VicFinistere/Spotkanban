@@ -428,8 +428,8 @@ function connectToYourSpace(){
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";  
   if(sessionStorage.getItem("username") && sessionStorage.getItem("username").length > 0){
     var username = sessionStorage.getItem("username");
+    alert("Welcome " + username);
     var associatedUrl = baseUrl + username;
-    alert("Welcome " + username + associatedUrl);
     window.location.replace(associatedUrl);
   }
 }
