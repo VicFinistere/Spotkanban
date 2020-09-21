@@ -39,9 +39,9 @@ function get_member($member_name, $member_password){
   $conn->set_charset("utf8");
   $fetched_task = mysqli_fetch_all($conn->query($req));
   if($fetched_task != null){
-    $result = "Member is found ! ".$fetched_task." ( ".$req." )";
+    $result = "Member found ! ".$fetched_task." ( ".$req." )";
   } else {
-    $result = "Bad credentials...".$fetched_task." ( ".$req." )";
+    $result = "Member unknow ".$fetched_task." ( ".$req." )";
   }
   return $result;
 }

@@ -174,7 +174,7 @@ $app->get('/', function() use($app) {
     $member_name = $request->get('member_name');
     $member_password = $request->get('member_password');
     $member = get_member($member_name, $member_password);
-    return json_encode(array('member_name' => $member_name, 'member_password' => $member_password, 'member' => $member));
+    return json_encode(array('member_name' => $member_name, 'member_password' => $member_password, 'member' => $member, 'exist' => 'true'));
   });
 
   $app->post('/handleTask', function(Request $request) use($app) {
