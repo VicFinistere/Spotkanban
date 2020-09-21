@@ -424,7 +424,6 @@ $(function() {
   $('#member-mail-div').hide();
   $('#member-new-password-div').hide();
   $('#member-password-div').show();
-  $("#board").hide();
 
   if(sessionStorage.getItem("connected") == 'true') {
     loadConnected();
@@ -453,7 +452,7 @@ $(function() {
     }
     
   } else {
-    $(".connect-to-you-space").hide();
+    console.log("ok");
   }
   
 });
