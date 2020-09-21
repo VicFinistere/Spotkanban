@@ -420,9 +420,9 @@ $(function() {
   if(sessionStorage.getItem("username") != ""){
     var username = sessionStorage.getItem("username");
     var url = baseurl + username;
-    alert(url);
+    console.log(url);
   } else {
-    alert(baseurl);
+    console.log(baseurl);
   }
   
 });

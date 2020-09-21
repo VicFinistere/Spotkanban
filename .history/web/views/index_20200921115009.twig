@@ -419,10 +419,10 @@ $(function() {
   var baseurl = window.location.origin+window.location.pathname;
   if(sessionStorage.getItem("username") != ""){
     var username = sessionStorage.getItem("username");
-    var url = baseurl + username;
-    alert(url);
+    var url = baseUrl + username;
+    console.log(url);
   } else {
-    alert(baseurl);
+    console.log(baseUrl);
   }
   
 });
