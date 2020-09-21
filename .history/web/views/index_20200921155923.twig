@@ -314,11 +314,10 @@ $('#task-modal-second-button').click(function(){
         },
         async: true,
         success: function (data) {
-          console.log(JSON.stringify(data));
+          alert(JSON.stringify(data));
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
-          console.log("Status: " + textStatus); 
-          console.log("Error: " + errorThrown); 
+          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         } 
     });
 }
@@ -326,7 +325,7 @@ $('#task-modal-second-button').click(function(){
 
   function removeTask(){
   
-  console.log("Enter the remove task method ");
+  alert("Enter the remove task method ");
 
    var task_id =  "";
   if($("#task-index").val() != ''){
@@ -360,11 +359,10 @@ $('#task-modal-second-button').click(function(){
         },
         async: true,
         success: function (data) {
-          console.log(JSON.stringify(data));
+          alert(JSON.stringify(data));
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
-          console.log("Status: " + textStatus); 
-          console.log("Error: " + errorThrown); 
+          alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         } 
     });
 }
@@ -437,6 +435,7 @@ function connectToYourSpace(){
 }
 
 function disconnectToYourSpace(){
+  alert("We hope to see you soon !");
    var getUrl = window.location;
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";  
   window.location.replace(baseUrl);
