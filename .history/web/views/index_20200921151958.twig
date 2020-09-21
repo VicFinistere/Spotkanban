@@ -426,11 +426,12 @@ function connectToYourSpace(){
   alert("Connection to your space !");
    var getUrl = window.location;
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/";  
-  var username = sessionStorage.getItem("username");
-  var associatedUrl = baseUrl + username;
-  alert("Welcome " + username + associatedUrl);
-  $( location ).attr("href", associatedUrl);
-  
+  if(sessionStorage.getItem("username") && sessionStorage.getItem("username").length > 0){
+    var username = sessionStorage.getItem("username");
+    var associatedUrl = baseUrl + username;
+    alert("Welcome " + username + associatedUrl);
+    $( location ).attr("href", associatedUrl);
+  }
 }
 
 function disconnectToYourSpace(){
