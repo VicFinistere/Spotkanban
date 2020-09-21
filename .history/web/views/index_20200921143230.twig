@@ -258,12 +258,7 @@ $('#login-modal-button').click(function(){
     
   } else {
     if($('#member-name').val() && $('#member-new-password').val() && $('#member-mail').val()){
-      sessionStorage.setItem('username', $('#member-name').val());
-      sessionStorage.setItem('password', $('#member-password').val());
-      sessionStorage.setItem('email', $('#member-mail').val());
-      sessionStorage.setItem('connected', 'true');
-      alert("You are connected " + $('#member-name').val() + " !");
-      loadConnected();
+
     } else {
       alert("You have to enter an username an email and a password ! \n Remember to use a password that you don't use anywhere else.")
     }
@@ -367,9 +362,8 @@ $('#task-modal-second-button').click(function(){
 
 function loginButton(){
   if($(".login-button").text() != "Connect"){
-    sessionStorage.setItem('username', "");    
+    sessionStorage.setItem('username', "");
     sessionStorage.setItem('password', "");
-    sessionStorage.setItem('email', "");
     sessionStorage.setItem('connected', 'false');
     alert("You are disconnected !");
     loadDisconnected();
