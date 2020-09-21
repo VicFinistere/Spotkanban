@@ -422,9 +422,9 @@ $(function() {
   if(sessionStorage.getItem("username") && sessionStorage.getItem("username").length > 0){
     var username = sessionStorage.getItem("username");
     var url = baseUrl + username;
-    
+    //window.location.replace(url);
   } else {
-    console.log("ok");
+    //window.location.replace(baseUrl);
   }
   
 });
