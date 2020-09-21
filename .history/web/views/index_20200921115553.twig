@@ -418,7 +418,7 @@ $(function() {
 
   var getUrl = window.location;
   var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];  
-  if(sessionStorage.getItem("username").length > 0){
+  if(sessionStorage.getItem("username")){
     var username = sessionStorage.getItem("username");
     var url = baseUrl + username;
     alert(url);
