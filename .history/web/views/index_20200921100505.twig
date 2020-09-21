@@ -142,10 +142,6 @@
             <input type="text" class="form-control" id="member-name" placeholder="Username">
           </div>
           <div class="form-group">
-            <label for="member-mail">Email</label>
-            <input type="email" class="form-control" id="member-mail" placeholder="Email">
-          </div>
-          <div class="form-group">
             <label for="member-password">Password</label>
             <input type="text" class="form-control" id="member-password" placeholder="Password">
           </div>
@@ -206,16 +202,6 @@
 </div>
 
 <script type="text/javascript" charset='utf-8'>
-
-$('#connection-state').change(function(){
-  
-  if($('#connection-state:contains("Register")').length > 0){
-    $('#member-mail').show();
-  } else {
-    $('#member-mail').hide();
-  }
-});
-
 
 $('#task-modal-button').click(function(){
   
@@ -394,8 +380,6 @@ function loadDisconnected(){
 }
 
 $(function() { 
-  
-  $('#member-mail').hide();
   
   if(sessionStorage.getItem("connected") == 'true') {
     loadConnected();
