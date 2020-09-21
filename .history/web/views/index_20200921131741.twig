@@ -387,7 +387,7 @@ function addTask(){
     var currentUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
     var username = sessionStorage.getItem("username");
     var associatedUrl = baseUrl + encodeURI(username);
-    document.location.href = associatedUrl;
+    window.location.href = associatedUrl;
 
   } else if(sessionStorage.getItem("connected") == 'true') {
     
