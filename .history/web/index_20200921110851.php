@@ -120,7 +120,7 @@ function get_tasks()
   }
 
   $conn->set_charset("utf8");
-  return mysqli_fetch_all($conn->query("SELECT * FROM task WHERE team IS 'Public'"));
+  return mysqli_fetch_all($conn->query("SELECT * FROM task"));
 }
 
 // Our web handlers
@@ -146,7 +146,7 @@ $app->get('/', function() use($app) {
     // GET TASK
     //$fetched_task = get_task($task_name);
     
-    //$msg = $task_id." : OK";
+    $msg = $task_id." : OK";
 
     // DELETE OLD TASK
     if($task_id != ''){

@@ -120,7 +120,7 @@ function get_tasks()
   }
 
   $conn->set_charset("utf8");
-  return mysqli_fetch_all($conn->query("SELECT * FROM task WHERE team IS 'Public'"));
+  return mysqli_fetch_all($conn->query("SELECT * FROM task"));
 }
 
 // Our web handlers
