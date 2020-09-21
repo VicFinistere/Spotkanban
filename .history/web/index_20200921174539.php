@@ -40,9 +40,9 @@ function set_member($member_name, $member_password, $member_mail){
   $conn->set_charset("utf8");
 
   if ($conn->query($req) === TRUE) {
-    return "Member is set ( ".$req." )successfully";
+    return "New record created ( ".$req." )successfully";
   } else {
-    return "Bad credentials..." . $req . "<br>" . $conn->error;
+    return "Error: " . $req . "<br>" . $conn->error;
   }
 }
 
