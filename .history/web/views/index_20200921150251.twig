@@ -430,7 +430,6 @@ function connectToYourSpace(){
     var username = sessionStorage.getItem("username");
     alert("Welcome " + username);
     var associatedUrl = baseUrl + username;
-    alert(associatedUrl);
     $(location).attr(‘href’, associatedUrl);
   }
 }
