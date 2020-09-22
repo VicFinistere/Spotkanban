@@ -314,7 +314,7 @@ $('#login-modal-button').click(function(){
           console.log(JSON.stringify(data));
           console.log(data['member']);
           if(data['member'].includes("Duplicate")){
-            alert("Sorry this username is not available and cannot be registered again. \n Choose another username or use your account to login !");
+            alert("Sorry this username is not available and cannot be registered again. Choose another username or use your account to login !");
           } else if(data['member'].includes("is set")){
               var member_name = $('#member-name').val();
               alert("Thanks for your registration " + member_name + " !");
